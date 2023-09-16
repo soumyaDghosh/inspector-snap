@@ -56,6 +56,7 @@ apps:
     environment:
       PYTHONPATH: $SNAP/usr/bin/inspector:$PYTHONPATH
     plugs:
+      - mount-observe
       - hardware-observe
       - network-observe
       - system-observe
