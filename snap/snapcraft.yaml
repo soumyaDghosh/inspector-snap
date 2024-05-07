@@ -21,7 +21,7 @@ parts:
     # See 'snapcraft plugins'
     plugin: meson
     source: https://github.com/Nokse22/inspector.git
-    source-tag: 'v0.1.8'
+    source-tag: 'v0.1.9'
     # source-branch: fix-motherboard
     source-depth: 1
     parse-info: [ usr/share/appdata/io.github.nokse22.inspector.appdata.xml ]
