@@ -1,32 +1,21 @@
-name: inspector # you probably want to 'snapcraft register <name>'
-base: core22 # the base snap is the execution environment for this snap
+name: inspector
+base: core24
 adopt-info: inspector
-grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
-website: https://github.com/Nokse22/teleprompter
-license: GPL-3.0
-source-code: https://github.com/Nokse22/teleprompter
-issues: https://github.com/Nokse22/teleprompter/issues
-contact: https://github.com/Nokse22/teleprompter
-
-
-
-architectures:
-  - build-on: amd64
-  - build-on: arm64
-  - build-on: armhf
+grade: stable
+confinement: strict
+platforms:
+  amd64:
+  arm64:
 
 parts:
   inspector:
-    # See 'snapcraft plugins'
     plugin: meson
     source: https://github.com/Nokse22/inspector.git
     source-tag: 'v0.2.0'
-    # source-branch: fix-motherboard
     source-depth: 1
     parse-info: [ usr/share/appdata/io.github.nokse22.inspector.appdata.xml ]
-    build-packages:
-      - blueprint-compiler
+    build-snaps:
+      - blueprint-compiler/latest/edge
     meson-parameters:
       - --prefix=/snap/inspector/current/usr
     override-build: |
